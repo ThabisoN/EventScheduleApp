@@ -1,0 +1,29 @@
+﻿@model CalendarApp.User
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("SaveUpdate", "User", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.UserId)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Firstname, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Firstname)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Surname, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Surname)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-success" />
+        <input type="reset" value="Reset" class="btn btn-warning" />
+    </div>
+}
